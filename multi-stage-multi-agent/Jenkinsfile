@@ -17,5 +17,14 @@ pipeline {
         sh 'node --version'
       }
     }
+    stage('Install Java and Run Hello World') {
+      agent {
+        docker { image 'openjdk:11-jdk' }
+      }
+      steps {
+        sh 'java -version'
+        sh 'echo "Hello, World!"'
+      }
+    }
   }
 }
